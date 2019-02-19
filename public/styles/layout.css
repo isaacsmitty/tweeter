@@ -16,6 +16,10 @@ html {
 
 
 
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
 body {
   margin: 0;
   color: #244751;
@@ -34,7 +38,3 @@ main {
 }
 
 
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
