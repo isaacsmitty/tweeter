@@ -73,6 +73,13 @@ function createTweetElement(tweet) {
       .then(textArea.val(''));
       }
     });
+
+$("#form-button").click(function(){
+        $("#new-tweet").slideToggle('slow', function() {
+          $("#textarea").focus();
+        });
+    });
+
   })
 
 

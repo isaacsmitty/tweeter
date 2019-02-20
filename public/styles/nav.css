@@ -21,3 +21,18 @@
   border-left: 10px;
   line-height: 80px;
 }
+
+#nav-bar button {
+  float: right;
+  height: 55px;
+  width: 110px;
+  margin-top: 12px;
+  border: 1px black solid;
+  border-radius: 10px;
+  color: #00a087;
+  opacity: .7;
+}
+
+#nav-bar button:hover {
+  opacity: .9;
+}
