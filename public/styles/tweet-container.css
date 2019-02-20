@@ -4,15 +4,11 @@
   margin-top: 4px;
   background-color: #eee;
   border: 1px #E9EBEC    solid;
-  transition: opacity.2s;
 }
 
 #tweet-container header {
   position: relative;
   opacity: .3;
-  transition: opacity.2s;
-
-
 }
 
 #tweet-container:hover header{
@@ -32,7 +28,6 @@
   display: inline-block;
   position: absolute;
   top: 1px;
-
 }
 
 #tweet-container header span {
@@ -63,10 +58,21 @@
   height: 40px;
   padding-left: 11px;
   background-color: #ffffff;
-
 }
 
 #tweet-container footer span {
-  position: absolute;
+  position: absolute
   top: 11px;
 }
+
+footer div {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  visibility: hidden;
+}
+
+#tweet-container:hover footer div {
+  visibility: visible;
+}
+
