@@ -6,7 +6,7 @@ $( document ).ready(function() {
 function renderTweets(tweets) {
   tweets.forEach(function(tweet) {
     var tweetElement = createTweetElement(tweet)
-    $('#example').append(tweetElement);
+    $('#example').prepend(tweetElement);
   })
 }
 
@@ -22,7 +22,8 @@ loadTweets();
 
 
 function createTweetElement(tweet) {
- const $tweet = $(`<article class='tweet-container'>
+  let date = new Date;
+  const $tweet = $(`<article class='tweet-container'>
           <header>
             <img src=${tweet.user.avatars.regular}>
             <h2>${tweet.user.name}</h2>
@@ -30,7 +31,7 @@ function createTweetElement(tweet) {
           </header>
           <p>${tweet.content.text}</p>
           <footer>
-            <span>${tweet.created_at}</span>
+            <span>${date.toString(tweet.created_at)}</span>
             <div class='icons'>
               <i class="fas fa-heart"></i>
               <i class="fas fa-flag"></i>
@@ -42,29 +43,28 @@ function createTweetElement(tweet) {
   return $tweet;
 }
 
-// renderTweets(data);
 
-
-    // console.log(textArea);
   var $submit = $('#form');
 
     $submit.on('submit', function(event) {
       event.preventDefault();
-      var textArea = $('#textarea').val();
 
-      if (textArea.length === 0) {
+      var textArea = $('#textarea');
+
+      if (textArea.val().length === 0) {
         alert('Make a tweet!');
 
-      } else if ( textArea.length >140) {
+      } else if ( textArea.val().length >140) {
         alert ('Tweet is too long!');
 
       } else {
         $.ajax('/tweets', {
           method: 'POST',
           data: $submit.serialize()
-        });
+        })
+      .then(loadTweets)
+      .then(textArea.val(''));
       }
-      //console.log($submit.serialize());
     });
   })
 
