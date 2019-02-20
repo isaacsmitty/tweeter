@@ -4,9 +4,10 @@ $( document ).ready(function() {
 
 
 function renderTweets(tweets) {
+  $('#tweet-container').empty()
   tweets.forEach(function(tweet) {
     var tweetElement = createTweetElement(tweet)
-    $('#example').prepend(tweetElement);
+    $('#tweet-container').prepend(tweetElement);
   })
 }
 
@@ -20,16 +21,22 @@ function loadTweets() {
 }
 loadTweets();
 
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 
 function createTweetElement(tweet) {
   let date = new Date;
   const $tweet = $(`<article class='tweet-container'>
           <header>
-            <img src=${tweet.user.avatars.regular}>
-            <h2>${tweet.user.name}</h2>
-            <span>${tweet.user.handle}</span>
+            <img src=${escape(tweet.user.avatars.regular)}>
+            <h2>${escape(tweet.user.name)}</h2>
+            <span>${escape(tweet.user.handle)}</span>
           </header>
-          <p>${tweet.content.text}</p>
+          <p>${escape(tweet.content.text)}</p>
           <footer>
             <span>${date.toString(tweet.created_at)}</span>
             <div class='icons'>
