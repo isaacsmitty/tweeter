@@ -29,7 +29,11 @@ function escape(str) {
 
 
 function createTweetElement(tweet) {
-  let date = new Date;
+  let tweetDate = new Date(tweet.created_at);
+  // let timeNow = new Date(Date.now());
+  let timeElapsed = Date.now() - (tweet.created_at);
+
+
   const $tweet = $(`<article class='tweet-container'>
           <header>
             <img src=${escape(tweet.user.avatars.regular)}>
@@ -38,7 +42,7 @@ function createTweetElement(tweet) {
           </header>
           <p>${escape(tweet.content.text)}</p>
           <footer>
-            <span>${date.toString(tweet.created_at)}</span>
+            <span>${tweetDate.toDateString()}</span>
             <div class='icons'>
               <i class="fas fa-heart"></i>
               <i class="fas fa-flag"></i>
@@ -58,11 +62,19 @@ function createTweetElement(tweet) {
 
       var textArea = $('#textarea');
 
-      if (textArea.val().length === 0) {
-        alert('Make a tweet!');
+      $('#warning').slideUp(20);
 
-      } else if ( textArea.val().length >140) {
-        alert ('Tweet is too long!');
+      if (textArea.val().length === 0) {
+        $('#warning').text('Your Tweeter is too short!');
+        $('#warning').slideToggle('slow', function() {
+          $('#textarea').focus();
+        });
+
+      } else if ( textArea.val().length >10) {
+          $('#warning').text('Your Tweeter is too long!');
+        $('#warning').slideToggle('slow', function() {
+          $('#textarea').focus();
+        });
 
       } else {
         $.ajax('/tweets', {
@@ -73,12 +85,15 @@ function createTweetElement(tweet) {
       .then(textArea.val(''));
       }
     });
-
-$("#form-button").click(function(){
-        $("#new-tweet").slideToggle('slow', function() {
-          $("#textarea").focus();
+  $('#form-button').click(function(){
+        $('#new-tweet').slideToggle('slow', function() {
+          $('#textarea').focus();
         });
     });
+
+
+
+
 
   })
 
