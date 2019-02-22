@@ -35,18 +35,12 @@
 #warning {
   display: none;
   height: 30px;
-  width: 200px;
-  background-color: #ffffff;
+  width: 100%;
+  background-color: #eab8b8;
   border-radius: 5px;
   border: 1px #b5b9bf solid;
   color: red;
   text-align: center;
   float: right;
   padding-top: 4px;
-
-
 }
-
-/*#too-long {
-  display: none;
-}*/

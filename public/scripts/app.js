@@ -116,7 +116,7 @@ var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
         $('#textarea').focus();
       });
 
-    } else if ( textArea.val().length >10) {
+    } else if ( textArea.val().length >140) {
         $('#warning').text('Your Tweeter is too long!');
         $('#warning').slideToggle('slow', function() {
           $('#textarea').focus();

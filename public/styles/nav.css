@@ -1,9 +1,9 @@
 #nav-bar {
-  background-color: #00a087;
   position: fixed;
+  width: 100%;
+  background-color: #00a087;
   top: 0;
   z-index: 100;
-  width: 100%;
   padding-left: 2em;
   padding-right: 2em;
   color: #e8fdff

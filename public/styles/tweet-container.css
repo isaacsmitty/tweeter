@@ -48,6 +48,7 @@
   vertical-align: middle;
   padding-top: 35px;
   padding-bottom: 35px;
+  word-wrap: break-word;
 }
 
 .tweet-container:hover p{
