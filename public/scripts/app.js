@@ -16,11 +16,10 @@ function loadTweets() {
   $.ajax({url: '/tweets'})
   .then(function(tweets) {
     renderTweets(tweets);
-    //console.log(tweets);
   })
 }
 loadTweets();
-
+//used to avoid cross-scripting
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -29,9 +28,8 @@ function escape(str) {
 
 
 function createTweetElement(tweet) {
-
+//function to translate 'tweet time' to 'time since'
   let timeElapsed = Date.now() - (tweet.created_at);
-  //console.log(timeElapsed);
 
   var timeSince = function(date) {
   if (typeof date !== 'object') {
@@ -78,7 +76,7 @@ function createTweetElement(tweet) {
 
 var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
 
-
+//parse incoming tweet object into usable html
   const $tweet = $(`<article class='tweet-container'>
           <header>
             <img src=${escape(tweet.user.avatars.regular)}>
@@ -99,14 +97,14 @@ var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
   return $tweet;
 }
 
-
+//on submit -- check tweet length then give warning --
+//or post to /tweets then load tweets and reset charCounter
   var $submit = $('#form');
 
   $submit.on('submit', function(event) {
     event.preventDefault();
 
     var textArea = $('#textarea');
-    //var counter = $('.counter').get()[0].textContent;
 
     $('#warning').slideUp(20);
 
@@ -137,8 +135,6 @@ var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
       $('#textarea').focus();
     });
   });
-
-// console.log(counter);
 
 })
 
