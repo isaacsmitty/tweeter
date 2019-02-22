@@ -29,9 +29,54 @@ function escape(str) {
 
 
 function createTweetElement(tweet) {
-  let tweetDate = new Date(tweet.created_at);
-  // let timeNow = new Date(Date.now());
+
   let timeElapsed = Date.now() - (tweet.created_at);
+  //console.log(timeElapsed);
+
+  var timeSince = function(date) {
+  if (typeof date !== 'object') {
+    date = new Date(date);
+  }
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+  var intervalType;
+
+  var interval = Math.floor(seconds / 31536000);
+  if (interval >= 1) {
+    intervalType = 'year';
+  } else {
+    interval = Math.floor(seconds / 2592000);
+    if (interval >= 1) {
+      intervalType = 'month';
+    } else {
+      interval = Math.floor(seconds / 86400);
+      if (interval >= 1) {
+        intervalType = 'day';
+      } else {
+        interval = Math.floor(seconds / 3600);
+        if (interval >= 1) {
+          intervalType = "hour";
+        } else {
+          interval = Math.floor(seconds / 60);
+          if (interval >= 1) {
+            intervalType = "minute";
+          } else {
+            interval = seconds;
+            intervalType = "second";
+          }
+        }
+      }
+    }
+  }
+
+  if (interval > 1 || interval === 0) {
+    intervalType += 's';
+  }
+
+  return interval + ' ' + intervalType;
+};
+
+var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
 
 
   const $tweet = $(`<article class='tweet-container'>
@@ -42,7 +87,7 @@ function createTweetElement(tweet) {
           </header>
           <p>${escape(tweet.content.text)}</p>
           <footer>
-            <span>${tweetDate.toDateString()}</span>
+            <span>${timeString + ' ago'}</span>
             <div class='icons'>
               <i class="fas fa-heart"></i>
               <i class="fas fa-flag"></i>
@@ -57,45 +102,45 @@ function createTweetElement(tweet) {
 
   var $submit = $('#form');
 
-    $submit.on('submit', function(event) {
-      event.preventDefault();
+  $submit.on('submit', function(event) {
+    event.preventDefault();
 
-      var textArea = $('#textarea');
+    var textArea = $('#textarea');
+    //var counter = $('.counter').get()[0].textContent;
 
-      $('#warning').slideUp(20);
+    $('#warning').slideUp(20);
 
-      if (textArea.val().length === 0) {
-        $('#warning').text('Your Tweeter is too short!');
+    if (textArea.val().length === 0) {
+      $('#warning').text('Your Tweeter is too short!');
+      $('#warning').slideToggle('slow', function() {
+        $('#textarea').focus();
+      });
+
+    } else if ( textArea.val().length >10) {
+        $('#warning').text('Your Tweeter is too long!');
         $('#warning').slideToggle('slow', function() {
           $('#textarea').focus();
         });
 
-      } else if ( textArea.val().length >10) {
-          $('#warning').text('Your Tweeter is too long!');
-        $('#warning').slideToggle('slow', function() {
-          $('#textarea').focus();
-        });
-
-      } else {
-        $.ajax('/tweets', {
-          method: 'POST',
-          data: $submit.serialize()
-        })
-      .then(loadTweets)
-      .then(textArea.val(''));
-      }
-    });
+    } else {
+      $.ajax('/tweets', {
+        method: 'POST',
+        data: $submit.serialize()
+      })
+    .then(loadTweets)
+    .then(textArea.val(''));
+    $('.counter').html(140);
+    }
+  });
   $('#form-button').click(function(){
-        $('#new-tweet').slideToggle('slow', function() {
-          $('#textarea').focus();
-        });
+    $('#new-tweet').slideToggle('slow', function() {
+      $('#textarea').focus();
     });
+  });
 
+// console.log(counter);
 
-
-
-
-  })
+})
 
 
 
