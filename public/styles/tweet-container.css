@@ -1,10 +1,17 @@
 
+
+@media only screen and (max-width: 600px) {
+  .card {
+    margin-top: 0.5em;
+    height: 12em;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .tweet-container {
     width: 100%;
   }
 }
-
 
 @media only screen and (min-width: 600px) {
   .tweet-container {
@@ -59,18 +66,34 @@
   top: 0px;
 }
 
+@media only screen and (max-width: 600px) {
+  .tweet-container p {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px #E9EBEC solid;
+    background-color: #ffffff;
+    padding-left: 11px;
+    vertical-align: middle;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    word-wrap: break-word;
+  }
+}
 
-.tweet-container p {
-  display: block;
-  width: 100%;
-  margin: 0;
-  border-bottom: 1px #E9EBEC solid;
-  background-color: #ffffff;
-  padding-left: 11px;
-  vertical-align: middle;
-  padding-top: 35px;
-  padding-bottom: 35px;
-  word-wrap: break-word;
+@media only screen and (min-width: 600px) {
+  .tweet-container p {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px #E9EBEC solid;
+    background-color: #ffffff;
+    padding-left: 11px;
+    vertical-align: middle;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    word-wrap: break-word;
+  }
 }
 
 .tweet-container:hover p{

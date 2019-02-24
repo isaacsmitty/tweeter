@@ -12,6 +12,13 @@
   /*color: #e8fdff*/
 }
 
+@media only screen and (max-width: 600px) {
+  .navbar .logo  {
+    position: absolute;
+    left: 1%;
+    height: 120%;
+  }
+}
 .navbar .logo  {
   position: absolute;
   left: 5%;
@@ -21,7 +28,7 @@
 @media only screen and (max-width: 600px) {
   .navbar .navbar-brand {
     position: absolute;
-    left: 32%;
+    left: 26%;
     font-size: 235%;
     border-left: 10px;
     line-height: 80px;
@@ -43,7 +50,7 @@
 @media only screen and (max-width: 600px) {
   #form-button {
     position: absolute;
-    right: 9%;
+    right: 7%;
     top: 7%;
     height: 55px;
     width: 110px;
