@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- External CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp" crossorigin="anonymous">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
 
@@ -29,28 +30,68 @@
   <body>
 
     <!-- Top nav bar (fixed) -->
-    <nav id="nav-bar">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
       <img class="logo" src="/images/bird.png">
+  <a class="navbar-brand" href="#">Tweeter</a>
+      <button id='form-button' class="btn btn-secondary my-2 my-sm-0" type="submit">Compose</button>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0"> -->
+      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search"> -->
+    <!-- </form> -->
+  <!-- </div> -->
+</nav>
+
+   <!--  <nav id="nav-bar">
       <span class="header">Tweeter</span>
       <button type="button" id="form-button">Compose</button>
-    </nav>
+    </nav> -->
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
+    <main class='jumbotron'>
+
 
       <section id='new-tweet' class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <div class="card">
+          <div class="card-body">
+            <h2>Compose Tweet</h2>
 
-        <form id='form' action="/tweets" method="POST">
-          <textarea id="textarea" name="text" placeholder="What are you humming about?"></textarea>
-          <div id='warning'></div>
+            <form id='form' action="/tweets" method="POST">
+              <textarea id="textarea" name="text" placeholder="What are you humming about?"></textarea>
+          <div id='spacer'>
+            <span id='warning'></span>
           <input id='submit' type="submit" value="Tweet">
           <span class="counter">140</span>
-
-        </form>
+        </div>
+            </form>
+          </div>
+        </div>
       </section>
 
+
+
+
+<!-- </div> -->
+
       <section id="tweet-container">
+
 
       </section>
 

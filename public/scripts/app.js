@@ -78,6 +78,8 @@ var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
 
 //parse incoming tweet object into usable html
   const $tweet = $(`<article class='tweet-container'>
+  <div class="card">
+  <div class="card-body">
           <header>
             <img src=${escape(tweet.user.avatars.regular)}>
             <h2>${escape(tweet.user.name)}</h2>
@@ -92,10 +94,13 @@ var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
               <i class="fas fa-retweet"></i>
             </div>
           </footer>
+        </div>
+</div>
         </article>`)
   // ...
   return $tweet;
 }
+
 
 //on submit -- check tweet length then give warning --
 //or post to /tweets then load tweets and reset charCounter
@@ -109,6 +114,7 @@ var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
     $('#warning').slideUp(20);
 
     if (textArea.val().length === 0) {
+      $('#textarea').css('color', 'red', 'border-color', 'red');
       $('#warning').text('Your Tweeter is too short!');
       $('#warning').slideToggle('slow', function() {
         $('#textarea').focus();
@@ -130,6 +136,7 @@ var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
     $('.counter').html(140);
     }
   });
+
   $('#form-button').click(function(){
     $('#new-tweet').slideToggle('slow', function() {
       $('#textarea').focus();

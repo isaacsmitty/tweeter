@@ -1,38 +1,44 @@
-#nav-bar {
+.navbar {
   position: fixed;
-  width: 100%;
-  background-color: #00a087;
+  width: 95%;
+  height: 5em;
+  /*background-color: #00a087;*/
   top: 0;
   z-index: 100;
+  margin-left: 19px;
+
   padding-left: 2em;
   padding-right: 2em;
-  color: #e8fdff
+  /*color: #e8fdff*/
 }
 
-#nav-bar .logo  {
-  float: left;
-  width: 80px;
-  height: 80px;
+.navbar .logo  {
+  position: absolute;
+  left: 5%;
+  height: 120%;
 }
 
-#nav-bar .header {
-  float: left;
-  font-size: 200%;
+.navbar .navbar-brand {
+  position: absolute;
+  left: 15%;
+  font-size: 235%;
   border-left: 10px;
   line-height: 80px;
+  color: #254752;
 }
 
-#nav-bar button {
-  float: right;
+#form-button {
+  position: absolute;
+  right: 10%;
   height: 55px;
   width: 110px;
   margin-top: 12px;
-  border: 1px black solid;
+  /*border: 1px black solid;
   border-radius: 10px;
-  color: #00a087;
+  color: #00a087;*/
   opacity: .7;
 }
 
-#nav-bar button:hover {
+.navbar button:hover {
   opacity: .9;
 }
