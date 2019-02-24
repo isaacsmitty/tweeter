@@ -116,13 +116,13 @@ var timeString = (timeSince(new Date(Date.now() - timeElapsed)));
     if (textArea.val().length === 0) {
       $('#textarea').css('color', 'red', 'border-color', 'red');
       $('#warning').text('Your Tweeter is too short!');
-      $('#warning').slideToggle('slow', function() {
+      $('#warning').toggle(function() {
         $('#textarea').focus();
       });
 
     } else if ( textArea.val().length >140) {
         $('#warning').text('Your Tweeter is too long!');
-        $('#warning').slideToggle('slow', function() {
+        $('#warning').toggle(function() {
           $('#textarea').focus();
         });
 

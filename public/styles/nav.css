@@ -18,27 +18,56 @@
   height: 120%;
 }
 
-.navbar .navbar-brand {
-  position: absolute;
-  left: 15%;
-  font-size: 235%;
-  border-left: 10px;
-  line-height: 80px;
-  color: #254752;
+@media only screen and (max-width: 600px) {
+  .navbar .navbar-brand {
+    position: absolute;
+    left: 32%;
+    font-size: 235%;
+    border-left: 10px;
+    line-height: 80px;
+    color: #254752;
+  }
 }
 
-#form-button {
-  position: absolute;
-  right: 10%;
-  height: 55px;
-  width: 110px;
-  margin-top: 12px;
-  /*border: 1px black solid;
-  border-radius: 10px;
-  color: #00a087;*/
-  opacity: .7;
+@media only screen and (min-width: 600px) {
+  .navbar .navbar-brand {
+    position: absolute;
+    left: 15%;
+    font-size: 235%;
+    border-left: 10px;
+    line-height: 80px;
+    color: #254752;
+  }
 }
 
+@media only screen and (max-width: 600px) {
+  #form-button {
+    position: absolute;
+    right: 9%;
+    top: 7%;
+    height: 55px;
+    width: 110px;
+    margin-top: 12px;
+    /*border: 1px black solid;
+    border-radius: 10px;
+    color: #00a087;*/
+    opacity: .7;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #form-button {
+    position: absolute;
+    right: 10%;
+    height: 55px;
+    width: 110px;
+    margin-top: 12px;
+    /*border: 1px black solid;
+    border-radius: 10px;
+    color: #00a087;*/
+    opacity: .7;
+}
+}
 .navbar button:hover {
   opacity: .9;
 }
